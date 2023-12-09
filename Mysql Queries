@@ -1,0 +1,73 @@
+create database emp;
+
+Use emp;
+
+Create Table emp (id INT NOT NULL PRIMARY KEY,name VARCHAR(250));
+
+INSERT INTO emp (id, name) VALUES (1, "Shashank");
+
+UPDATE emp SET name = "Vishwakarma" WHERE id = 3;
+
+delete FROM emp WHERE Id = 3;
+
+SELECT * FROM emp;
+
+Drop table emp;
+
+Drop database ssp;
+
+Add Coloumn Query - Alter Table emp Add (Salary Int );
+
+Second Highest Salary Without limit - 
+
+SELECT MAX(salary) From emp WHERE Salary < (SELECT MAX(salary) From emp);
+
+Maximum Salary - SELECT MAX(salary) From emp;
+
+By Limit Second Highest Salary - Select * From emp order by salary desc Limit 1,1;
+
+Marksheet Query With Limit -
+ 
+Select roll_no,name,physics,chemistry,maths,(physics + chemistry + maths) as Total From 
+st_marksheet Where physics>=33 And Chemistry>=33 And maths>=33 Order by Total desc Limit 0,10;
+
+Marksheet Query Without Limit - 
+
+Select roll_no,name,physics,chemistry,maths,(physics + chemistry + maths) as Total From 
+st_marksheet Where physics>=33 And Chemistry>=33 And maths>=33 Order by Total desc;
+
+Foreign Key Query - 
+
+Alter table st_user Add Constraint FK_st_user Foreign Key (Role_ID) references St_Role(ID) on delete cascade on update cascade;
+
+Group by - select count(id), name from emp group by name;
+
+In - select * from emp where salary in (0 , 1500);
+
+Between - select * from emp where id between  1 and 2;
+
+Like - select * from emp where name like 'a%';
+
+*************************************************
+
+Joins 
+
+Inner Join - SELECT * FROM student INNER JOIN course ON student.student_id = course.student_id;
+
+Left Join - SELECT * FROM student as s LEFT JOIN course as c ON s.student_id = c.student_id;
+
+Right Join- SELECT * FROM student as s RIGHT JOIN course as c ON s.student_id = c.student_id;
+
+Full Join - 
+
+SELECT * FROM student as s LEFT JOIN course as c ON s.student_id = c.student_id 
+UNION
+SELECT * FROM student as s RIGHT JOIN course as c ON s.student_id = c.student_id; 
+
+Full Join AlterNate Query 
+
+SELECT * FROM student as s LEFT JOIN course as c ON s.student_id = c.student_id
+where  c.student_id is null
+UNION
+SELECT * FROM student as s RIGHT JOIN course as c ON s.student_id = c.student_id
+where s.student_id is null;

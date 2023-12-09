@@ -1,0 +1,48 @@
+TRIGERSSSSSSSS
+
+After update
+
+
+     create trigger after_update
+     after update on depart
+     for each row
+    update employee set salary = salary+1000 where id =3;
+
+before_update
+
+ create trigger before_update
+     after delete on depart
+     for each row
+     update depart set depart_name = "English" where id ;
+
+after delete
+
+ create trigger after_delete
+    after delete on employee
+    for each row
+    update depart set salary = 6577 where id = 3;
+
+
+before delete
+
+
+ create trigger before_delete
+    before delete on employee
+     for each row
+    insert into depart values(4,"social");
+
+
+after insert
+
+ create trigger after_insert
+     after insert on employee
+     for each row
+    delete from depart where id = 4;
+
+
+before_insert
+
+ create trigger before_insert
+    before insert on employee
+    for each row
+    insert into depart values (54, "commerce");
